@@ -17,7 +17,16 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
     return pokemon
 }
 
+
+pokeApi.getPokemonById = (idPokemon) => {
+    const url = `https://pokeapi.co/api/v2/pokemon/${idPokemon}`
+    return fetch(url)
+        .then((response) => response.json())
+        .then((response) => response)
+}
+
 pokeApi.getPokemonDetail = (pokemon) => {
+   
     return fetch(pokemon.url)
         .then((response) => response.json())
         .then(convertPokeApiDetailToPokemon)
